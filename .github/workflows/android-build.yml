@@ -20,11 +20,15 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
     
-    - name: Build APK with Gradle Wrapper
+    - name: Install Gradle
+      run: |
+        apt-get update && apt-get install -y gradle
+        gradle --version
+    
+    - name: Build APK with Gradle
       run: |
         cd app
-        chmod +x gradlew
-        ./gradlew clean assembleDebug --no-daemon --stacktrace
+        gradle clean assembleDebug --no-daemon --stacktrace
     
     - name: Upload APK artifact
       uses: actions/upload-artifact@v4
