@@ -14,18 +14,20 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
+    - name: Set up Android SDK
+      uses: android-actions/setup-android@v2
+      with:
+        api-level: 34
+        build-tools: 34.0.0
+    
     - name: Set up Java JDK
       uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'temurin'
     
-    - name: Make gradlew executable
-      run: chmod +x ./gradlew
-      working-directory: ./app
-    
     - name: Build with Gradle
-      run: ./gradlew clean assembleDebug --no-daemon
+      run: gradle clean assembleDebug --no-daemon
       working-directory: ./app
     
     - name: Upload APK artifact
