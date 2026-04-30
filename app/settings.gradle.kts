@@ -16,4 +16,3 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Medical Lab Reports"
-include ':app'
