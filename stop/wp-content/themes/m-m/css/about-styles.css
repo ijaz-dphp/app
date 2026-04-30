@@ -1,0 +1,1243 @@
+
+
+/* About Page Styles */
+
+
+
+
+
+/* Dark theme breadcrumbs */
+
+body.dark-theme .breadcrumbs {
+
+    background-color: var(--body-bg);
+
+    border-bottom-color: var(--navbar-border);
+
+}
+
+
+
+body.dark-theme .breadcrumb-link:hover {
+
+    background-color: var(--button-dark-bg);
+
+    color: var(--accent-color);
+
+}
+
+
+
+body.dark-theme .breadcrumb-item.active span {
+
+    /* background-color: var(--accent-color);
+
+    color: var(--button-text-primary); */
+
+}
+
+
+
+/* About Hero Section */
+
+.about-hero-section {
+
+    /* min-height: 90vh; */
+
+    background-color: var(--body-bg);
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 0px 0 0px;
+
+}
+
+
+
+.about-container {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+}
+
+
+
+.about-content-wrapper {
+
+    display: flex;
+
+    align-items: center;
+
+    min-height: calc(90vh - 180px);
+
+    position: relative;
+
+}
+
+
+
+.about-left-content {
+
+    width: 60%;
+
+    /* max-width: 600px; */
+
+    padding-left: max(20px, calc((100vw - 1310px) / 2));
+
+    z-index: 2;
+
+    position: relative;
+
+}
+
+
+
+.about-content {
+
+    padding-right: 60px;
+
+}
+
+
+
+.about-title {
+
+    font-size: 3rem;
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    margin-bottom: 40px;
+
+    color: var(--text-primary);
+
+    letter-spacing: -0.02em;
+
+}
+
+
+
+.about-description {
+
+    font-size: 1rem;
+
+    font-weight: 400;
+
+    line-height: 1.6;
+
+    color: var(--text-secondary);
+
+    margin-bottom: 30px;
+
+    max-width: 520px;
+
+}
+
+
+
+.about-problems-list {
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0 16px 30px 0;
+
+}
+
+
+
+.about-problem-item {
+
+    display: flex;
+
+    align-items: flex-start;
+
+margin-bottom: 5px;
+
+    font-size: 1rem;
+
+    line-height: 1;
+
+}
+
+
+
+.bullet-point {
+
+    color: var(--text-primary);
+
+    font-weight: 700;
+
+    font-size: 1.4rem;
+
+    margin-right: 16px;
+
+    margin-top: -4px;
+
+    flex-shrink: 0;
+
+}
+
+
+
+.problem-text {
+
+    color: var(--text-secondary);
+
+    font-weight: 500;
+
+}
+
+
+
+.about-belief {
+
+    font-size: 1rem;
+
+    line-height: 1.6;
+
+    color: var(--text-primary);
+
+    margin: 0;
+
+}
+
+
+
+.about-right-image {
+
+    position: absolute;
+
+    right: 0;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 40%;
+
+    overflow: hidden;
+
+}
+
+
+
+.about-image {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: left center;
+
+    min-height: calc(90vh - 180px);
+
+}
+
+
+
+/* Dark theme adjustments */
+
+/* body.dark-theme .about-hero-section
+ {
+
+    background-color: #1F1F1F;
+
+}
+
+body.dark-theme .for-professionals-section{
+    background-color: #18181B;
+}
+body.dark-theme .features-section{
+        background-color: #1F1F1F;
+}
+
+body.dark-theme section.how-it-works-section{
+        background-color: #18181B !important;
+
+}
+
+body.dark-theme .job-card, body.dark-theme .card-box {
+    background: #1f1f1f;
+}
+
+section.for-professionals-section.section-we-work-with {
+    background: #1f1f1f;
+} */
+
+
+body.dark-theme section:nth-child(odd){
+      background-color: #18181B;
+}
+body.dark-theme section:nth-child(even){
+     background-color: #1F1F1F 
+}
+
+body.dark-theme .job-card, body.dark-theme .card-box{
+         background-color: #1F1F1F 
+}
+
+/* Responsive Design */
+
+@media (max-width: 1400px) {
+
+    .about-left-content {
+
+        padding-left: 40px;
+
+    }
+
+    
+
+    .about-title {
+
+        font-size: 3.2rem;
+
+    }
+
+    
+
+    .about-content {
+
+        padding-right: 40px;
+
+    }
+
+}
+
+
+
+@media (max-width: 1200px) {
+
+    .about-left-content {
+
+        width: 55%;
+
+        padding-left: 30px;
+
+    }
+
+    
+
+    .about-right-image {
+
+        width: 45%;
+
+    }
+
+    
+
+    .about-title {
+
+        font-size: 2.8rem;
+
+        margin-bottom: 30px;
+
+    }
+
+    
+
+    .about-description {
+
+        font-size: 1.1rem;
+
+        margin-bottom: 40px;
+
+    }
+
+    
+
+    .about-content {
+
+        padding-right: 30px;
+
+    }
+
+}
+
+
+
+@media (max-width: 992px) {
+
+    .about-hero-section {
+
+        min-height: auto;
+
+        padding: 60px 0;
+
+    }
+
+    
+
+    .about-content-wrapper {
+
+      
+        flex-wrap: wrap;
+
+        min-height: auto;
+
+    }
+
+    
+
+    .about-left-content {
+
+        width: 100%;
+
+        padding-left: 20px;
+
+        padding-right: 20px;
+
+        margin-bottom: 40px;
+
+    }
+
+    
+
+    .about-content {
+
+        padding-right: 0;
+
+
+
+    }
+
+    
+
+    .about-right-image {
+
+        position: relative;
+
+        width: 100%;
+
+        height: 400px;
+
+        order: -1;
+
+        margin-bottom: 40px;
+
+    }
+
+    
+
+    .about-image {
+
+        min-height: 400px;
+
+    }
+
+    
+
+    .about-title {
+
+        font-size: 2.5rem;
+
+    }
+
+    
+
+    .about-problems-list {
+
+        text-align: left;
+
+        max-width: 600px;
+
+        margin: 0 auto 40px;
+
+    }
+
+}
+
+
+
+@media (max-width: 768px) {
+
+    .about-hero-section {
+
+        padding: 40px 0;
+                padding-bottom: 0;
+
+    }
+
+    
+
+    .about-left-content {
+
+        padding-left: 15px;
+
+        padding-right: 15px;
+
+    }
+
+    
+
+    .about-title {
+
+        font-size: 2.2rem;
+
+        line-height: 1.2;
+
+        margin-bottom: 25px;
+
+    }
+
+    
+
+    .about-description {
+
+        font-size: 1rem;
+
+        margin-bottom: 35px;
+
+    }
+
+    
+
+    .about-problem-item {
+
+        font-size: 1rem;
+
+        margin-bottom: 20px;
+
+    }
+
+    
+
+    .bullet-point {
+
+        font-size: 1.2rem;
+
+        margin-right: 12px;
+
+    }
+
+    
+
+    .about-belief {
+
+        font-size: 1.1rem;
+
+    }
+
+    
+
+    .about-right-image {
+
+        height: 300px;
+
+               margin-bottom: 0px;
+
+    }
+
+    
+
+    .about-image {
+
+        min-height: 300px;
+
+    }
+
+    .about-title {
+
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-align: left;
+
+    }
+
+
+}
+
+
+
+@media (max-width: 576px) {
+
+
+
+    
+
+    .about-description {
+
+
+        margin-bottom: 30px;
+
+    }
+
+    
+
+    .about-problem-item {
+
+        font-size: 0.95rem;
+
+        margin-bottom: 18px;
+
+    }
+
+    
+
+    .about-belief {
+
+        font-size: 1rem;
+
+    }
+
+    
+
+    .about-right-image {
+
+        height: 250px;
+
+    }
+
+    
+
+    .about-image {
+
+        min-height: 250px;
+
+    }
+
+    
+
+    /* Breadcrumb responsive */
+
+    .breadcrumbs {
+
+        padding: 15px 0;
+
+    }
+
+    
+
+    .breadcrumb-list {
+
+        font-size: 13px;
+
+    }
+
+    
+
+    .breadcrumb-link {
+
+        padding: 6px 10px;
+
+        gap: 4px;
+
+    }
+
+    
+
+    .breadcrumb-item.active span {
+
+        padding: 6px 10px;
+
+        font-size: 12px;
+
+    }
+
+    
+
+    .breadcrumb-item:not(:last-child)::after {
+
+        margin: 0 8px;
+
+    }
+
+    
+
+    .breadcrumb-link span {
+
+        display: none;
+
+    }
+
+    
+
+    .breadcrumb-link {
+
+        padding: 6px;
+
+    }
+
+    
+
+    .breadcrumb-item.active span {
+
+        padding: 6px 8px;
+
+    }
+
+}
+
+    margin-bottom: 30px;
+
+    color: var(--text-primary);
+
+}
+
+
+
+.hero-title .question-mark {
+
+    color: var(--accent-color);
+
+    font-size: 3.5rem;
+
+}
+
+.position-static{ position: static;}
+
+.hero-description {
+
+    margin-bottom: 40px;
+
+}
+
+
+
+.hero-description p {
+
+    font-size: 1rem;
+
+    font-weight: 500;
+
+    line-height: 1.6;
+
+    color: var(--text-primary);
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.hand-image-container {
+
+    position: absolute;
+
+    right: -106px;
+
+top: -93px;
+
+}
+
+
+
+.hand-questionmark {
+
+
+
+    /* filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1)); */
+
+}
+
+
+
+/* CV Form Styling */
+
+.cv-form-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+}
+
+
+
+.cv-form {
+
+    background: var(--accent-color);
+
+    border-radius: 280px 280px 0% 0%;
+
+    padding: 75px 44px 60px;
+
+    width: 100%;
+
+    position: relative;
+
+}
+
+
+
+.form-title {
+
+    font-size: 2rem;
+
+    font-weight: 700;
+
+    color: var(--button-text-primary);
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+}
+
+
+
+.form-group {
+
+    margin-bottom: 10px;
+
+}
+
+
+
+.form-control {
+
+    width: 100%;
+
+    padding: 15px 20px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    background-color: #ffffff;
+
+    color: var(--text-primary);
+
+    transition: all 0.3s ease;
+
+    box-shadow: none;
+
+}
+
+
+
+.form-control:focus {
+
+    outline: none;
+
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+
+    transform: translateY(-2px);
+
+}
+
+
+
+.form-control::placeholder {
+
+    color: #999;
+
+    font-weight: 500;
+
+}
+
+
+
+/* File Upload Styling */
+
+.file-upload-group {
+
+    position: relative;
+
+}
+
+
+
+.file-upload-label {
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 15px 20px;
+
+    background-color: #ffffff;
+
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    margin-bottom: 0;
+
+}
+
+
+
+.file-upload-label:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+}
+
+
+
+.file-upload-label i {
+
+    color: var(--text-secondary);
+
+    margin-right: 10px;
+
+    font-size: 16px;
+
+}
+
+
+
+.file-text {
+
+    color: var(--text-primary);
+
+    font-weight: 500;
+
+    margin-right: auto;
+
+}
+
+
+
+.file-placeholder {
+
+    color: #999;
+
+    font-style: italic;
+
+    font-size: 14px;
+
+}
+
+
+
+.file-input {
+
+    position: absolute;
+
+    opacity: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    cursor: pointer;
+
+}
+
+
+
+.file-note {
+
+font-size: 14px;
+
+    color: var(--button-text-primary);
+
+    text-align: left;
+
+    margin: 10px 0 12px;
+
+    font-weight: 500;
+
+}
+
+
+
+.submit-btn {
+
+    width: 100%;
+
+    padding: 15px;
+
+    background-color: var(--button-text-primary);
+
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 25px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+}
+
+
+
+.submit-btn:hover {
+
+    background-color: var(--button-dark-hover);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 20px rgba(31, 31, 31, 0.3);
+
+}
+
+
+
+/* Dark theme adjustments */
+
+body.dark-theme .candidate-hero-section {
+
+    background-color: var(--body-bg);
+
+}
+
+
+
+body.dark-theme .hand-questionmark {
+
+ 
+
+}
+
+
+
+body.dark-theme .cv-form {
+
+    box-shadow: 0 20px 40px rgba(255, 223, 32, 0.4);
+
+}
+
+
+
+/* Responsive Design */
+
+@media (max-width: 992px) {
+
+    .candidate-hero-section {
+
+        padding: 60px 0;
+
+    }
+
+    
+
+    .hero-title {
+
+        font-size: 2.8rem;
+
+        margin-bottom: 25px;
+
+    }
+
+    
+
+    .cv-form {
+
+        margin-top: 40px;
+
+        padding: 40px 30px 50px;
+
+    }
+
+    
+
+    .hand-questionmark {
+
+        max-width: 250px;
+
+    }
+
+}
+
+
+
+@media (max-width: 768px) {
+
+    .candidate-hero-section {
+
+        padding: 40px 0;
+
+    }
+
+    
+
+    .hero-title {
+
+        font-size: 2.4rem;
+
+        line-height: 1.2;
+
+    }
+
+    
+
+    .hero-title .question-mark {
+
+        font-size: 2.8rem;
+
+    }
+
+    
+
+    .hero-description p {
+
+        font-size: 1rem;
+
+    }
+
+    
+
+    .cv-form {
+
+        border-radius: 40px;
+
+        padding: 35px 25px 45px;
+
+    }
+
+    
+
+    .form-title {
+
+        font-size: 1.8rem;
+
+        margin-bottom: 25px;
+
+    }
+
+    
+
+    .hand-image-container {
+
+        text-align: center;
+
+        margin-top: 30px;
+
+    }
+
+    
+
+    .hand-questionmark {
+
+        max-width: 200px;
+
+    }
+    .about-content-wrapper{
+                display: block;
+    }
+
+}
+
+
+
+@media (max-width: 576px) {
+
+    .hero-title {
+
+        font-size: 2rem;
+
+        text-align: center;
+
+    }
+
+    
+
+    .hero-title .question-mark {
+
+        font-size: 2.4rem;
+
+    }
+
+    
+
+    .hero-description {
+
+        text-align: center;
+
+    }
+
+    
+
+    .cv-form {
+
+        padding: 30px 20px 40px;
+
+    }
+
+    
+
+    .form-title {
+
+        font-size: 1.6rem;
+
+    }
+
+    
+
+    .form-control {
+
+        padding: 12px 18px;
+
+        font-size: 14px;
+
+    }
+
+    
+
+    .file-upload-label {
+
+        padding: 12px 18px;
+
+    }
+
+    
+
+    .submit-btn {
+
+        padding: 12px;
+
+        font-size: 14px;
+
+    }
+
+    .for-professionals-section{
+                padding: 40px 0;padding-bottom: 0;
+    }
+    .professionals-image{
+                padding: 0;
+    }
+    .step-title{
+                margin-bottom: 0px;
+    }
+    .sub-text br{ display: none;}
+}
+
+
+
+.for-professionals-section{    background-color: var(--gray-light);}
+
+.section-we-work-with{background-color: var(--body-bg);}
+
+.step-title{
+
+    justify-content: flex-start;    font-weight: 800;
+
+}
+
+section.features-section{ background-color: #ffffff;}
+
+.how-it-works-title,p.sub-text{
+
+        margin-bottom: 30px;
+
+}

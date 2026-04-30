@@ -1,0 +1,32 @@
+# Gradle files
+.gradle/
+build/
+*.jks
+*.keystore
+
+# Android Studio
+.idea/
+.DS_Store
+*.iml
+*.apk
+*.ap_
+*.dex
+*.class
+*.jar
+*.log
+
+# Android specific
+local.properties
+captures/
+.externalNativeBuild
+.cxx
+
+# IDE
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.local

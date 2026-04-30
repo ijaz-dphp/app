@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample CBC Report - BVH</title>
+    <style>
+        @media print {
+            .no-print { display: none !important; }
+            body { margin: 0; padding: 20px; }
+            @page { margin: 1cm; }
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            font-size: 13px;
+        }
+        
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 40px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        
+        .print-btn:hover {
+            background: #5568d3;
+        }
+        
+        .header-section {
+            border-bottom: 3px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .hospital-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #000;
+            display: inline-block;
+            width: 70%;
+        }
+        
+        .logo {
+            float: right;
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+        }
+        
+        .department-name {
+            font-size: 13px;
+            color: #000;
+            clear: both;
+            padding-top: 3px;
+        }
+        
+        .info-section {
+            margin: 15px 0;
+        }
+        
+        .info-row {
+            display: flex;
+            margin-bottom: 5px;
+        }
+        
+        .info-col {
+            flex: 1;
+            font-size: 12px;
+        }
+        
+        .info-col strong {
+            font-weight: 600;
+        }
+        
+        .divider {
+            border: 0;
+            border-top: 1px solid #999;
+            margin: 12px 0;
+        }
+        
+        .test-header {
+            margin: 15px 0 10px 0;
+        }
+        
+        .test-header h2 {
+            margin: 0 0 3px 0;
+            font-size: 15px;
+            font-weight: bold;
+            color: #000;
+        }
+        
+        .test-header h3 {
+            margin: 0 0 5px 0;
+            font-size: 13px;
+            font-weight: 600;
+            color: #000;
+        }
+        
+        .test-dates {
+            font-size: 11px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .results-table th {
+            background: #f0f0f0;
+            padding: 8px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 11px;
+            border: 1px solid #ccc;
+        }
+        
+        .results-table td {
+            padding: 6px 8px;
+            border: 1px solid #ddd;
+            font-size: 11px;
+        }
+        
+        .results-table td:first-child {
+            font-weight: 600;
+        }
+        
+        .abnormal {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #999;
+        }
+        
+        .footer p {
+            margin: 3px 0;
+            font-size: 11px;
+        }
+        
+        .footer .small {
+            font-size: 10px;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .previous-results {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .prev-col {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .prev-header {
+            font-weight: 600;
+            font-size: 10px;
+            padding: 4px;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+        }
+        
+        .prev-date {
+            font-size: 9px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="window.print()" class="print-btn no-print">🖨️ Print as PDF</button>
+    
+    <!-- Hospital Header -->
+    <div class="header-section">
+        <div class="logo">BVH</div>
+        <div class="hospital-name">Bahawal Victoria Hospital, Bahawalpur</div>
+        <div class="department-name">Department of Pathology</div>
+    </div>
+    
+    <!-- Patient Information -->
+    <div class="info-section">
+        <div class="info-row">
+            <div class="info-col"><strong>MRN</strong> 1202417794119</div>
+            <div class="info-col"><strong>Department:</strong> IPD Ward : Gynae I</div>
+        </div>
+        <div class="info-row">
+            <div class="info-col"><strong>Name:</strong> NADIA</div>
+            <div class="info-col"><strong>F/H's Name:</strong></div>
+        </div>
+        <div class="info-row">
+            <div class="info-col"><strong>Contact No :</strong> 3062360006</div>
+            <div class="info-col"></div>
+        </div>
+        <div class="info-row">
+            <div class="info-col"><strong>Age/ Gender:</strong> 28Y 8M 16D / Female</div>
+            <div class="info-col"></div>
+        </div>
+    </div>
+    
+    <div class="info-row" style="margin-top: 8px;">
+        <div class="info-col"><strong>Request Date:</strong> 13/Aug/2025 - 10:37 AM</div>
+        <div class="info-col"><strong>Printed Date:</strong> 13/Aug/2025 - 10:45 PM</div>
+    </div>
+    
+    <hr class="divider">
+    
+    <!-- Test Information -->
+    <div class="test-header">
+        <h2>Haematology</h2>
+        <h3>CBC - Complete Blood Count</h3>
+    </div>
+    <div class="test-dates">
+        Published at: 13/Aug/2025 - 10:55 AM Performed at: 13/Aug/2025 - 10:54 AM
+    </div>
+    
+    <!-- Results Table -->
+    <table class="results-table">
+        <thead>
+            <tr>
+                <th style="width: 15%;">Test</th>
+                <th style="width: 20%;">Reference Ranges</th>
+                <th style="width: 10%;">Unit</th>
+                <th style="width: 13%;">Result<br><span class="prev-date">BVH<br>13-Aug-25<br>10:55 AM</span></th>
+                <th style="width: 14%;" colspan="3">Last Results</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th style="width: 14%;"><span class="prev-date">BVH<br>02-Aug-25<br>02:06 PM</span></th>
+                <th style="width: 14%;"><span class="prev-date">BVH<br>12-Jul-25<br>05:09 PM</span></th>
+                <th style="width: 14%;"><span class="prev-date">BVH<br>26-Jun-25<br>04:21 PM</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>WBC</td>
+                <td>4.0-11.0</td>
+                <td>/mm3</td>
+                <td>10.1</td>
+                <td>10.1</td>
+                <td>13.1</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>RBC</td>
+                <td>3.6-5.8</td>
+                <td>mm^3</td>
+                <td>3.88</td>
+                <td>3.7</td>
+                <td class="abnormal">↓3.56</td>
+                <td>3.69</td>
+            </tr>
+            <tr>
+                <td>HGB</td>
+                <td>10-15</td>
+                <td>g/dl</td>
+                <td>10.7</td>
+                <td>10.3</td>
+                <td class="abnormal">↓9.9</td>
+                <td class="abnormal">↓9.6</td>
+            </tr>
+            <tr>
+                <td>HCT</td>
+                <td>37.0-47.0</td>
+                <td>%</td>
+                <td>30.2</td>
+                <td>29.9</td>
+                <td>28.4</td>
+                <td>28.8</td>
+            </tr>
+            <tr>
+                <td>MCV</td>
+                <td>76.0-96.0</td>
+                <td>f1</td>
+                <td>77.8</td>
+                <td>77.5</td>
+                <td>79.7</td>
+                <td>77.9</td>
+            </tr>
+            <tr>
+                <td>MCHC</td>
+                <td>30.0-35.0</td>
+                <td>G/dl</td>
+                <td class="abnormal">↑35.4</td>
+                <td class="abnormal">↑35.5</td>
+                <td class="abnormal">↑35.1</td>
+                <td>33.5</td>
+            </tr>
+            <tr>
+                <td>PLT</td>
+                <td>150.0 - 400.0</td>
+                <td>mm^3</td>
+                <td>212</td>
+                <td>202</td>
+                <td>211</td>
+                <td>180</td>
+            </tr>
+            <tr>
+                <td>%Neut</td>
+                <td></td>
+                <td></td>
+                <td>74.2</td>
+                <td>76</td>
+                <td>80.6</td>
+                <td>80</td>
+            </tr>
+            <tr>
+                <td>%LYMP</td>
+                <td>20.0-45.0</td>
+                <td>%</td>
+                <td>20.5</td>
+                <td>20</td>
+                <td>16.2</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>MCH</td>
+                <td>27.0-32.0</td>
+                <td>pg</td>
+                <td>27.6</td>
+                <td>27.5</td>
+                <td>28</td>
+                <td class="abnormal">↓26.1</td>
+            </tr>
+            <tr>
+                <td>'MXD%</td>
+                <td>4.0 - 10.0</td>
+                <td>%</td>
+                <td>5.3</td>
+                <td>4</td>
+                <td class="abnormal">↓3.2</td>
+                <td>5</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <p class="small">*Electronically verified report, signatures are not required</p>
+        <p><strong>Verified By</strong></p>
+        <p>Dr Mehreen Naseer - N/A</p>
+    </div>
+</body>
+</html>

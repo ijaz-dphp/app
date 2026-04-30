@@ -1,0 +1,28 @@
+android {
+    ndkVersion "25.1.8937393"
+}
+
+buildscript {
+    ext {
+        kotlin_version = '1.9.10'
+        gradle_version = '8.1.0'
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$gradle_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.48'
+    }
+}
+
+plugins {
+    id 'com.android.application' version '8.1.0'
+    id 'kotlin-android'
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

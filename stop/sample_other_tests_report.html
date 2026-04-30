@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample LFT & Lipid Report - BVH</title>
+    <style>
+        @media print {
+            .no-print { display: none !important; }
+            body { margin: 0; padding: 20px; }
+            @page { margin: 1cm; }
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            font-size: 13px;
+        }
+        
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 40px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        
+        .print-btn:hover {
+            background: #5568d3;
+        }
+        
+        .header-section {
+            border-bottom: 3px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .hospital-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #000;
+            display: inline-block;
+            width: 70%;
+        }
+        
+        .logo {
+            float: right;
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+        }
+        
+        .department-name {
+            font-size: 13px;
+            color: #000;
+            clear: both;
+            padding-top: 3px;
+        }
+        
+        .info-section {
+            margin: 15px 0;
+        }
+        
+        .info-row {
+            display: flex;
+            margin-bottom: 5px;
+        }
+        
+        .info-col {
+            flex: 1;
+            font-size: 12px;
+        }
+        
+        .info-col strong {
+            font-weight: 600;
+        }
+        
+        .divider {
+            border: 0;
+            border-top: 1px solid #999;
+            margin: 12px 0;
+        }
+        
+        .test-header {
+            margin: 15px 0 10px 0;
+        }
+        
+        .test-header h2 {
+            margin: 0 0 3px 0;
+            font-size: 15px;
+            font-weight: bold;
+            color: #000;
+        }
+        
+        .test-header h3 {
+            margin: 0 0 5px 0;
+            font-size: 13px;
+            font-weight: 600;
+            color: #000;
+        }
+        
+        .test-dates {
+            font-size: 11px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .results-table th {
+            background: #f0f0f0;
+            padding: 8px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 11px;
+            border: 1px solid #ccc;
+        }
+        
+        .results-table td {
+            padding: 6px 8px;
+            border: 1px solid #ddd;
+            font-size: 11px;
+        }
+        
+        .results-table td:first-child {
+            font-weight: 600;
+        }
+        
+        .abnormal {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #999;
+        }
+        
+        .footer p {
+            margin: 3px 0;
+            font-size: 11px;
+        }
+        
+        .footer .small {
+            font-size: 10px;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .prev-date {
+            font-size: 9px;
+            color: #666;
+        }
+        
+        .section-break {
+            margin: 25px 0;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="window.print()" class="print-btn no-print">🖨️ Print as PDF</button>
+    
+    <!-- Hospital Header -->
+    <div class="header-section">
+        <div class="logo">BVH</div>
+        <div class="hospital-name">Bahawal Victoria Hospital, Bahawalpur</div>
+        <div class="department-name">Department of Pathology</div>
+    </div>
+    
+    <!-- Patient Information -->
+    <div class="info-section">
+        <div class="info-row">
+            <div class="info-col"><strong>MRN</strong> 1202527255967</div>
+            <div class="info-col"><strong>Department:</strong> OPD</div>
+        </div>
+        <div class="info-row">
+            <div class="info-col"><strong>Name:</strong> MUHAMMAD EJAZ</div>
+            <div class="info-col"><strong>F/H's Name:</strong></div>
+        </div>
+        <div class="info-row">
+            <div class="info-col"><strong>Contact No :</strong> 3398885955</div>
+            <div class="info-col"></div>
+        </div>
+        <div class="info-row">
+            <div class="info-col"><strong>Age/ Gender:</strong> 33Y 2M 29D / Male</div>
+            <div class="info-col"></div>
+        </div>
+    </div>
+    
+    <div class="info-row" style="margin-top: 8px;">
+        <div class="info-col"><strong>Request Date:</strong> 06/Feb/2026 - 10:31 AM</div>
+        <div class="info-col"><strong>Printed Date:</strong> 06/Feb/2026 - 11:52 AM</div>
+    </div>
+    
+    <hr class="divider">
+    
+    <!-- Routine Chemistry - LFT -->
+    <div class="test-header">
+        <h2>Routine Chemistry</h2>
+        <h3>Liver Function Test LFTs</h3>
+    </div>
+    <div class="test-dates">
+        Published at: 06/Feb/2026 - 11:43 AM Performed at: 06/Feb/2026 - 11:41 AM
+    </div>
+    
+    <table class="results-table">
+        <thead>
+            <tr>
+                <th style="width: 15%;">Test</th>
+                <th style="width: 20%;">Reference Ranges</th>
+                <th style="width: 10%;">Unit</th>
+                <th style="width: 13%;">Result<br><span class="prev-date">BVH<br>06-Feb-26<br>11:43 AM</span></th>
+                <th style="width: 14%;" colspan="3">Last Results</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th style="width: 14%;"><span class="prev-date">BVH<br>22-Jan-26<br>01:40 PM</span></th>
+                <th style="width: 14%;"><span class="prev-date">BVH<br>04-Dec-25<br>11:49 AM</span></th>
+                <th style="width: 14%;"><span class="prev-date">BVH<br>07-Oct-25<br>01:03 PM</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ALT</td>
+                <td>&lt; 40.0</td>
+                <td>U/L</td>
+                <td>78</td>
+                <td>112</td>
+                <td>68.6</td>
+                <td>78.9</td>
+            </tr>
+            <tr>
+                <td>Total Bilirubin</td>
+                <td>&lt; 1.0</td>
+                <td>mg/dl</td>
+                <td>0.594</td>
+                <td>0.653</td>
+                <td>0.839</td>
+                <td>0.498</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <!-- Lipid Profile -->
+    <div class="section-break"></div>
+    <div class="test-header">
+        <h3>LIPID PROFILE (CHOL, TRIG, HDL, LDL,)</h3>
+    </div>
+    <div class="test-dates">
+        Published at: 06/Feb/2026 - 11:37 AM Performed at: 06/Feb/2026 - 11:36 AM
+    </div>
+    
+    <table class="results-table">
+        <thead>
+            <tr>
+                <th style="width: 15%;">Test</th>
+                <th style="width: 20%;">Reference Ranges</th>
+                <th style="width: 10%;">Unit</th>
+                <th style="width: 13%;">Result<br><span class="prev-date">BVH<br>06-Feb-26<br>11:43 AM</span></th>
+                <th style="width: 14%;" colspan="3">Last Results</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th style="width: 14%;"><span class="prev-date">BVH<br>22-Jan-26<br>01:39 PM</span></th>
+                <th style="width: 14%;"><span class="prev-date">BVH<br>04-Dec-25<br>11:49 AM</span></th>
+                <th style="width: 14%;"><span class="prev-date">BVH<br>07-Oct-25<br>01:04 PM</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>TRIGLYCERIDES</td>
+                <td>&lt; 150</td>
+                <td>mg/dl</td>
+                <td>138</td>
+                <td>248</td>
+                <td>199</td>
+                <td>232</td>
+            </tr>
+            <tr>
+                <td>Total cholesterol</td>
+                <td>&lt; 200</td>
+                <td>mg/dl</td>
+                <td>176</td>
+                <td>196</td>
+                <td>146</td>
+                <td>159</td>
+            </tr>
+            <tr>
+                <td>HDL CHOLESTEROL</td>
+                <td>&gt; 35</td>
+                <td>mg/dl</td>
+                <td class="abnormal">↑35.9</td>
+                <td>34</td>
+                <td>31.6</td>
+                <td>28.5</td>
+            </tr>
+            <tr>
+                <td>LDL</td>
+                <td>&lt; 150</td>
+                <td>mg/dl</td>
+                <td>132</td>
+                <td>115</td>
+                <td>95.8</td>
+                <td>84</td>
+            </tr>
+            <tr>
+                <td>VLDL</td>
+                <td>&lt; 30</td>
+                <td>mg/dl</td>
+                <td>27.6</td>
+                <td>49.5</td>
+                <td>39.7</td>
+                <td>46.4</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <!-- CRP-HS -->
+    <div class="section-break"></div>
+    <div class="test-header">
+        <h3>CRP - HS</h3>
+    </div>
+    <div class="test-dates">
+        Published at: 06/Feb/2026 - 11:43 AM Performed at: 06/Feb/2026 - 11:41 AM
+    </div>
+    
+    <table class="results-table">
+        <thead>
+            <tr>
+                <th style="width: 15%;">Test</th>
+                <th style="width: 20%;">Reference Ranges</th>
+                <th style="width: 10%;">Unit</th>
+                <th style="width: 13%;">Result<br><span class="prev-date">BVH<br>06-Feb-26<br>11:43 AM</span></th>
+                <th style="width: 14%;" colspan="3">Last Results</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th style="width: 14%;"><span class="prev-date">BVH<br>22-Jan-26<br>01:40 PM</span></th>
+                <th style="width: 14%;"></th>
+                <th style="width: 14%;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>HS- CRP</td>
+                <td>&lt; 5.0</td>
+                <td>mg/l</td>
+                <td>30.4</td>
+                <td>1.24</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <!-- Serology -->
+    <div class="section-break"></div>
+    <div class="test-header">
+        <h2>Serology</h2>
+        <h3>SCREENING (HBSAG,ANTI HCV,ANTI HIV) BY DEVICE/STRIP METHOD</h3>
+    </div>
+    <div class="test-dates">
+        Published at: 06/Feb/2026 - 11:48 AM Performed at: 06/Feb/2026 - 11:46 AM
+    </div>
+    
+    <table class="results-table">
+        <thead>
+            <tr>
+                <th style="width: 15%;">Test</th>
+                <th style="width: 20%;">Reference Ranges</th>
+                <th style="width: 10%;">Unit</th>
+                <th style="width: 13%;">Result<br><span class="prev-date">BVH<br>06-Feb-26<br>11:43 AM</span></th>
+                <th style="width: 14%;" colspan="3">Last Results</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th style="width: 14%;"><span class="prev-date">BVH<br>22-Jan-26<br>01:21 PM</span></th>
+                <th style="width: 14%;"></th>
+                <th style="width: 14%;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Anti HIV</td>
+                <td>Negative</td>
+                <td></td>
+                <td>Negative</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>HbsAg</td>
+                <td>Negative</td>
+                <td></td>
+                <td>Negative</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Anti HCV</td>
+                <td>Negative</td>
+                <td></td>
+                <td>Negative</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <p class="small">*Electronically verified report, signatures are not required</p>
+        <p><strong>Verified By</strong></p>
+        <p>Dr Kiran Irshad - N/A</p>
+    </div>
+</body>
+</html>

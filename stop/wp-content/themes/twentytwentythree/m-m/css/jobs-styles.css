@@ -1,0 +1,182 @@
+
+/* Job Page Styles */
+
+/* M&E Opportunities Hero Section */
+.me-opportunities-hero {
+    padding: 60px 0 60px 0;
+    position: relative;
+}
+
+.me-opportunities-hero .hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0px 0;
+}
+
+.me-opportunities-hero .hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 40px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.me-opportunities-hero .hero-description {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    font-weight: 400;    margin: 0px 0;
+}
+
+.me-opportunities-hero .subtitle {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.me-opportunities-hero .opportunities-text {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+
+
+.me-opportunities-hero .qualified-text,
+.me-opportunities-hero .apply-text {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0px;
+    line-height: 1.6;
+}
+
+.me-opportunities-hero .apply-text {
+    margin-bottom: 0;
+}
+
+/* Dark Theme Support */
+body.dark-theme .me-opportunities-hero {
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+}
+
+body.dark-theme .me-opportunities-hero .hero-title {
+    color: var(--text-primary);
+}
+
+body.dark-theme .me-opportunities-hero .subtitle,
+body.dark-theme .me-opportunities-hero .opportunities-text {
+    color: var(--text-secondary);
+}
+
+body.dark-theme .me-opportunities-hero .qualified-text,
+body.dark-theme .me-opportunities-hero .apply-text {
+    color: var(--text-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 1199px) {
+    .me-opportunities-hero .hero-title {
+        font-size: 3rem;
+    }
+    
+    .me-opportunities-hero .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .me-opportunities-hero .opportunities-text,
+    .me-opportunities-hero .qualified-text,
+    .me-opportunities-hero .apply-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .me-opportunities-hero {
+        padding: 60px 0 80px 0;
+    }
+    
+    .me-opportunities-hero .hero-title {
+        font-size: 2.75rem;
+        margin-bottom: 32px;
+    }
+    
+    .me-opportunities-hero .subtitle {
+        margin-bottom: 28px;
+    }
+    
+    .me-opportunities-hero .opportunities-text {
+        margin-bottom: 32px;
+    }
+    
+    .me-opportunities-hero .action-text {
+        margin-top: 24px;
+    }
+}
+
+@media (max-width: 767px) {
+    .me-opportunities-hero {
+        padding: 50px 0 70px 0;
+    }
+    
+    .me-opportunities-hero .hero-title {
+        font-size: 2.25rem;
+        margin-bottom: 28px;
+    }
+    
+    .me-opportunities-hero .subtitle {
+        font-size: 1.125rem;
+        margin-bottom: 24px;
+    }
+    
+    .me-opportunities-hero .opportunities-text,
+    .me-opportunities-hero .qualified-text,
+    .me-opportunities-hero .apply-text {
+        font-size: 1rem;
+    }
+    
+    .me-opportunities-hero .opportunities-text {
+        margin-bottom: 28px;
+    }
+    
+    .me-opportunities-hero .action-text {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 575px) {
+    .me-opportunities-hero {
+        padding: 40px 0 60px 0;
+    }
+    
+    .me-opportunities-hero .hero-title {
+        font-size: 2rem;
+        margin-bottom: 24px;
+    }
+    
+    .me-opportunities-hero .subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+    
+    .me-opportunities-hero .opportunities-text {
+        margin-bottom: 24px;
+    }
+    
+    .me-opportunities-hero .action-text {
+        margin-top: 16px;
+    }
+    
+    .me-opportunities-hero .qualified-text,
+    .me-opportunities-hero .apply-text {
+        font-size: 0.95rem;
+    }
+}
+.latest-roles-section {
+    padding: 60px 0;
+}

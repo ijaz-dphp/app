@@ -1,0 +1,394 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: index.php');
+    exit;
+}
+
+require_once 'config/database.php';
+
+$report_id = $_GET['id'] ?? 0;
+
+$db = new Database();
+$conn = $db->getConnection();
+
+// Get report details
+$stmt = $conn->prepare("
+    SELECT r.*, p.*, tc.name as category_name, tc.code as category_code, tc.description as test_description,
+           p.name as patient_name
+    FROM reports r 
+    JOIN patients p ON r.patient_id = p.id 
+    JOIN test_categories tc ON r.category_id = tc.id 
+    WHERE r.id = :id
+");
+$stmt->execute(['id' => $report_id]);
+$report = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$report) {
+    die('Report not found!');
+}
+
+// Get test results
+$stmt = $conn->prepare("
+    SELECT rr.*, tp.test_name, tp.min_value, tp.max_value, tp.unit 
+    FROM report_results rr 
+    JOIN test_parameters tp ON rr.parameter_id = tp.id 
+    WHERE rr.report_id = :id 
+    ORDER BY tp.display_order
+");
+$stmt->execute(['id' => $report_id]);
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Report - <?php echo htmlspecialchars($report['patient_name']); ?></title>
+    <link rel="stylesheet" href="includes/report_styles.css">
+    <style>
+        /* Additional styles specific to view report */
+        .test-section {
+            margin: 15px 0;
+        }
+        
+        .test-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #000;
+            margin: 12px 0 4px 0;
+        }
+        
+        .test-subtitle {
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+            margin: 0 0 3px 0;
+        }
+        
+        .test-meta {
+            font-size: 10px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <a href="dashboard.php" class="back-btn no-print">← Dashboard</a>
+    <button onclick="window.print()" class="print-btn no-print">🖨️ Print PDF</button>
+    
+    <?php include 'includes/report_header.php'; ?>
+            .no-print { display: none; }
+            body { margin: 0; padding: 15px; }
+            @page { margin: 15mm; }
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 15px;
+            background: #fff;
+            font-size: 11px;
+            line-height: 1.4;
+        }
+        
+        .header-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 0;
+        }
+        
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .hospital-info {
+            flex: 1;
+        }
+        
+        .hospital-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+            margin: 0 0 2px 0;
+            line-height: 1.2;
+        }
+        
+        .department-name {
+            font-size: 11px;
+            color: #8b0000;
+            margin: 0 0 8px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #000;
+        }
+        
+        .patient-info {
+            margin: 0 0 15px 0;
+            padding-bottom: 0;
+        }
+        
+        .patient-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3px 40px;
+        }
+        
+        .patient-item {
+            display: flex;
+            font-size: 10px;
+            line-height: 1.8;
+        }
+        
+        .patient-label {
+            font-weight: 600;
+            color: #000;
+            min-width: 95px;
+            flex-shrink: 0;
+        }
+        
+        .patient-value {
+            color: #000;
+            font-weight: bold;
+            flex: 1;
+        }
+        
+        .test-section {
+            margin: 15px 0;
+        }
+        
+        .test-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #000;
+            margin: 12px 0 4px 0;
+        }
+        
+        .test-subtitle {
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+            margin: 0 0 3px 0;
+        }
+        
+        .test-meta {
+            font-size: 10px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 10px;
+            margin: 8px 0;
+        }
+        
+        .results-table th {
+            background: #e8eef5;
+            padding: 6px 8px;
+            text-align: left;
+            font-weight: 600;
+            color: #000;
+            border: 1px solid #ccc;
+            font-size: 10px;
+        }
+        
+        .results-table td {
+            padding: 5px 8px;
+            border: 1px solid #ddd;
+            font-size: 10px;
+        }
+        
+        .results-table tr:hover {
+            background: #f9f9f9;
+        }
+        
+        .test-name-col {
+            font-weight: 600;
+            color: #000;
+        }
+        
+        .abnormal {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .footer-section {
+            margin-top: 25px;
+            padding-top: 12px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .footer-note {
+            font-size: 9px;
+            color: #666;
+            font-style: italic;
+            margin: 4px 0;
+        }
+        
+        .verified-by {
+            font-size: 10px;
+            margin: 8px 0 0 0;
+            font-weight: 600;
+        }
+        
+        .print-btn, .back-btn {
+            position: fixed;
+            top: 20px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+        
+        .print-btn {
+            right: 20px;
+            background: #2c5aa0;
+            color: white;
+        }
+        
+        .print-btn:hover {
+            background: #234a85;
+        }
+        
+        .back-btn {
+            right: 180px;
+            background: #28a745;
+            color: white;
+        }
+        
+        .back-btn:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <a href="dashboard.php" class="back-btn no-print">← Dashboard</a>
+    <button onclick="window.print()" class="print-btn no-print">🖨️ Print PDF</button>
+    
+    <!-- Hospital Header -->
+    <div class="header-section">
+        <img src="assets/images/punjab-logo.png" alt="Punjab Government Logo" class="logo-img">
+        <div class="hospital-info">
+            <h1 class="hospital-name">Bahawal Victoria Hospital, Bahawalpur</h1>
+            <p class="department-name">Department of Pathology</p>
+        </div>
+    </div>
+    
+    <!-- Patient Information -->
+    <div class="patient-info">
+        <div class="patient-grid">
+            <div class="patient-item">
+                <span class="patient-label">MRN</span>
+                <span class="patient-value"><?php echo htmlspecialchars($report['mrn']); ?></span>
+            </div>
+            <div class="patient-item">
+                <span class="patient-label">Department:</span>
+                <span class="patient-value"><?php echo htmlspecialchars($report['department']); ?></span>
+            </div>
+            <div class="patient-item">
+                <span class="patient-label">Name:</span>
+                <span class="patient-value"><?php echo strtoupper(htmlspecialchars($report['patient_name'])); ?></span>
+            </div>
+            <div class="patient-item">
+                <span class="patient-label">F/H's Name:</span>
+                <span class="patient-value"><?php echo htmlspecialchars($report['father_husband_name'] ?? ''); ?></span>
+            </div>
+            <div class="patient-item">
+                <span class="patient-label">Contact No :</span>
+                <span class="patient-value"><?php echo htmlspecialchars($report['contact']); ?></span>
+            </div>
+            <div class="patient-item">
+                <span class="patient-label">Age/ Gender:</span>
+                <span class="patient-value"><?php echo htmlspecialchars($report['age']); ?> / <?php echo htmlspecialchars($report['gender']); ?></span>
+            </div>
+            <div class="patient-item">
+                <span class="patient-label">Request Date:</span>
+                <span class="patient-value"><?php echo date('d/M/Y - H:i A', strtotime($report['request_date'])); ?></span>
+            </div>
+            <div class="patient-item">
+                <span class="patient-label">Printed Date:</span>
+                <span class="patient-value"><?php echo date('d/M/Y - H:i A'); ?></span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Test Section -->
+    <div class="test-section">
+        <h2 class="test-title"><?php echo htmlspecialchars($report['category_name']); ?></h2>
+        <h3 class="test-subtitle"><?php echo htmlspecialchars($report['test_description']); ?></h3>
+        <div class="test-meta">
+            Published at: <?php echo date('d/M/Y - h:i A', strtotime($report['published_date'])); ?> 
+            Performed at: <?php echo date('d/M/Y - h:i A', strtotime($report['performed_date'])); ?>
+        </div>
+        
+        <!-- Results Table -->
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Test</th>
+                    <th style="width: 25%;">Reference Ranges</th>
+                    <th style="width: 15%;">Unit</th>
+                    <th style="width: 30%;">Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($results as $result): ?>
+                    <?php
+                    $range = '';
+                    if ($result['min_value'] !== '') $range .= $result['min_value'];
+                    if ($result['min_value'] !== '' && $result['max_value'] !== '' && strpos($result['max_value'], '<') === false && strpos($result['max_value'], '>') === false) $range .= '-';
+                    if ($result['max_value'] !== '') $range .= $result['max_value'];
+                    if ($range === '') $range = '';
+                    
+                    $result_class = $result['is_abnormal'] ? 'abnormal' : '';
+                    $arrow = '';
+                    if ($result['is_abnormal'] && $result['result_value'] !== '') {
+                        if ($result['min_value'] !== '' && is_numeric($result['result_value']) && floatval($result['result_value']) < floatval($result['min_value'])) {
+                            $arrow = ' ↓';
+                        } elseif ($result['max_value'] !== '' && strpos($result['max_value'], '<') === false && strpos($result['max_value'], '>') === false && is_numeric($result['result_value']) && is_numeric($result['max_value']) && floatval($result['result_value']) > floatval($result['max_value'])) {
+                            $arrow = ' ↑';
+                        }
+                    }
+                    ?>
+                    <tr>
+                        <td class="test-name-col"><?php echo htmlspecialchars($result['test_name']); ?></td>
+                        <td><?php echo htmlspecialchars($range); ?></td>
+                        <td><?php echo htmlspecialchars($result['unit']); ?></td>
+                        <td class="<?php echo $result_class; ?>"><strong><?php echo htmlspecialchars($result['result_value']); ?><?php echo $arrow; ?></strong></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    
+    <?php if (!empty($report['comments'])): ?>
+    <!-- Comments Section -->
+    <div style="margin: 15px 0; padding: 10px; background: #f5f5f5; border-left: 3px solid #2c5aa0;">
+        <p style="margin: 0; font-size: 10px;"><strong>Comments:</strong> <?php echo htmlspecialchars($report['comments']); ?></p>
+    </div>
+    <?php endif; ?>
+    
+    <!-- Footer -->
+    <div class="footer-section">
+        <p class="footer-note">*Electronically verified report, signatures are not required</p>
+        <p class="verified-by">Verified By<br><?php echo htmlspecialchars($report['verified_by']); ?> - N/A</p>
+    </div>
+</body>
+</html>

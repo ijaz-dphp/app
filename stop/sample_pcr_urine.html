@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCR & Urine Test - Sample Report</title>
+    <style>
+        @media print {
+            .no-print { display: none; }
+            body { margin: 0; padding: 15px; }
+            @page { margin: 15mm; }
+        }
+        
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 15px;
+            background: #fff;
+            font-size: 11px;
+            line-height: 1.4;
+        }
+        
+        .header-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 2px solid #2c5aa0;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .logo-img { width: 70px; height: auto; }
+        .hospital-info { flex: 1; }
+        .hospital-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2c5aa0;
+            margin: 0 0 3px 0;
+        }
+        .department-name { font-size: 12px; color: #333; margin: 0; }
+        
+        .patient-info {
+            margin: 15px 0 20px 0;
+            padding: 0;
+        }
+        
+        .patient-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px 40px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        
+        .patient-item { display: block; }
+        .patient-label { font-weight: bold; color: #000; }
+        .patient-value { color: #000; font-weight: normal; }
+        
+        .test-section { margin: 20px 0; }
+        .test-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #000;
+            margin: 15px 0 4px 0;
+        }
+        .test-subtitle {
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+            margin: 0 0 3px 0;
+        }
+        .test-meta {
+            font-size: 11px;
+            color: #000;
+            margin-bottom: 8px;
+        }
+        
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+            font-size: 11px;
+        }
+        
+        .results-table th {
+            background-color: #d3d3d3;
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #999;
+            font-weight: bold;
+            font-size: 11px;
+            color: #000;
+        }
+        
+        .results-table td {
+            padding: 6px 8px;
+            border: 1px solid #ccc;
+        }
+        
+        .abnormal { color: #d32f2f; font-weight: bold; }
+        .arrow { font-size: 10px; margin-left: 3px; }
+        .separator { border-bottom: 2px solid #ddd; margin: 30px 0; }
+        
+        .footer { margin-top: 40px; }
+        
+        .print-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: #2c5aa0;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        @media print {
+            .print-button { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button no-print" onclick="window.print()">🖨️ Print Report</button>
+    
+    <div class="header-section">
+        <img src="assets/images/punjab-logo.png" alt="Punjab Government Logo" class="logo-img">
+        <div class="hospital-info">
+            <h1 class="hospital-name">Bahawal Victoria Hospital, Bahawalpur</h1>
+            <p class="department-name">Department of Pathology</p>
+        </div>
+    </div>
+    
+    <!-- Patient Information -->
+    <div class="patient-info">
+        <div class="patient-grid">
+            <div class="patient-item">
+                <span class="patient-label">MRN</span> <span class="patient-value">45678</span>
+            </div>
+            <div class="patient-item">
+                <span class="patient-label">Department:</span> <span class="patient-value">Emergency Ward</span>
+            </div>
+            <div class="patient-item">
+                <span class="patient-label">Name:</span> <span class="patient-value">AHMED ALI</span>
+            </div>
+            <div class="patient-item">
+                <span class="patient-label">F/H's Name:</span> <span class="patient-value">Muhammad Ali</span>
+            </div>
+            <div class="patient-item">
+                <span class="patient-label">Contact No :</span> <span class="patient-value">3001234567</span>
+            </div>
+            <div class="patient-item">
+                <span class="patient-label">Request Date:</span> <span class="patient-value">12/Feb/2026 - 09:15 AM</span>
+            </div>
+            <div class="patient-item">
+                <span class="patient-label">Age/ Gender:</span> <span class="patient-value">35Y / Male</span>
+            </div>
+            <div class="patient-item">
+                <span class="patient-label">Printed Date:</span> <span class="patient-value">12/Feb/2026 - 02:30 PM</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- TEST 1: PCR Tests -->
+    <div class="test-section">
+        <h2 class="test-title">Molecular Biology</h2>
+        <h3 class="test-subtitle">PCR - RT-PCR Tests</h3>
+        <div class="test-meta">
+            <strong>Performed at:</strong> 12/Feb/2026 - 11:00 AM  <strong>Published at:</strong> 12/Feb/2026 - 02:25 PM
+        </div>
+        
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th style="width: 40%;">Test</th>
+                    <th style="width: 25%;">Reference Ranges</th>
+                    <th style="width: 15%;">Unit</th>
+                    <th style="width: 20%;">Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>COVID-19 RT-PCR</td>
+                    <td>Negative</td>
+                    <td></td>
+                    <td><strong>Negative</strong></td>
+                </tr>
+                <tr>
+                    <td>Hepatitis B PCR</td>
+                    <td>Not Detected</td>
+                    <td>IU/mL</td>
+                    <td><strong>Not Detected</strong></td>
+                </tr>
+                <tr>
+                    <td>Hepatitis C PCR</td>
+                    <td>Not Detected</td>
+                    <td>IU/mL</td>
+                    <td><strong>Not Detected</strong></td>
+                </tr>
+                <tr>
+                    <td>HIV RNA PCR</td>
+                    <td>Not Detected</td>
+                    <td>copies/mL</td>
+                    <td><strong>Not Detected</strong></td>
+                </tr>
+                <tr>
+                    <td>TB PCR (MTB)</td>
+                    <td>Not Detected</td>
+                    <td></td>
+                    <td><strong>Not Detected</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="separator"></div>
+    
+    <!-- TEST 2: Urine Analysis -->
+    <div class="test-section">
+        <h2 class="test-title">Urine Analysis</h2>
+        <h3 class="test-subtitle">URINE - Complete Urine Examination</h3>
+        <div class="test-meta">
+            <strong>Performed at:</strong> 12/Feb/2026 - 10:00 AM  <strong>Published at:</strong> 12/Feb/2026 - 02:25 PM
+        </div>
+        
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th style="width: 40%;">Test</th>
+                    <th style="width: 25%;">Reference Ranges</th>
+                    <th style="width: 15%;">Unit</th>
+                    <th style="width: 20%;">Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="4" style="background: #f0f0f0; font-weight: bold;">PHYSICAL EXAMINATION</td>
+                </tr>
+                <tr>
+                    <td>Color</td>
+                    <td>Pale Yellow</td>
+                    <td></td>
+                    <td>Pale Yellow</td>
+                </tr>
+                <tr>
+                    <td>Appearance</td>
+                    <td>Clear</td>
+                    <td></td>
+                    <td>Clear</td>
+                </tr>
+                <tr>
+                    <td>pH</td>
+                    <td>5.0 - 8.0</td>
+                    <td></td>
+                    <td>6.0</td>
+                </tr>
+                <tr>
+                    <td>Specific Gravity</td>
+                    <td>1.005 - 1.030</td>
+                    <td></td>
+                    <td>1.020</td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="background: #f0f0f0; font-weight: bold;">CHEMICAL EXAMINATION</td>
+                </tr>
+                <tr>
+                    <td>Protein</td>
+                    <td>Negative</td>
+                    <td>mg/dL</td>
+                    <td>Negative</td>
+                </tr>
+                <tr>
+                    <td>Glucose</td>
+                    <td>Negative</td>
+                    <td>mg/dL</td>
+                    <td>Negative</td>
+                </tr>
+                <tr>
+                    <td>Ketones</td>
+                    <td>Negative</td>
+                    <td></td>
+                    <td>Negative</td>
+                </tr>
+                <tr>
+                    <td>Blood</td>
+                    <td>Negative</td>
+                    <td></td>
+                    <td>Negative</td>
+                </tr>
+                <tr>
+                    <td>Bilirubin</td>
+                    <td>Negative</td>
+                    <td></td>
+                    <td>Negative</td>
+                </tr>
+                <tr>
+                    <td>Urobilinogen</td>
+                    <td>Normal</td>
+                    <td></td>
+                    <td>Normal</td>
+                </tr>
+                <tr>
+                    <td>Nitrite</td>
+                    <td>Negative</td>
+                    <td></td>
+                    <td>Negative</td>
+                </tr>
+                <tr>
+                    <td>Leukocyte Esterase</td>
+                    <td>Negative</td>
+                    <td></td>
+                    <td>Negative</td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="background: #f0f0f0; font-weight: bold;">MICROSCOPIC EXAMINATION</td>
+                </tr>
+                <tr>
+                    <td>RBCs</td>
+                    <td>0 - 3</td>
+                    <td>/HPF</td>
+                    <td>1-2</td>
+                </tr>
+                <tr>
+                    <td>WBCs</td>
+                    <td>0 - 5</td>
+                    <td>/HPF</td>
+                    <td>2-3</td>
+                </tr>
+                <tr>
+                    <td>Epithelial Cells</td>
+                    <td>Few</td>
+                    <td>/HPF</td>
+                    <td>Few</td>
+                </tr>
+                <tr>
+                    <td>Bacteria</td>
+                    <td>Nil</td>
+                    <td>/HPF</td>
+                    <td>Nil</td>
+                </tr>
+                <tr>
+                    <td>Crystals</td>
+                    <td>Nil</td>
+                    <td>/HPF</td>
+                    <td>Nil</td>
+                </tr>
+                <tr>
+                    <td>Casts</td>
+                    <td>Nil</td>
+                    <td>/LPF</td>
+                    <td>Nil</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="footer">
+        <p style="margin: 30px 0 10px 0; font-size: 11px;">*Electronically verified report, signatures are not required</p>
+        <div style="text-align: right; margin-top: 20px; padding-top: 10px; border-top: 2px solid #000;">
+            <p style="margin: 0; font-weight: bold; font-size: 12px;">Verified By</p>
+            <p style="margin: 5px 0 0 0; font-size: 11px;">Dr Kiran Irshad - N/A</p>
+        </div>
+    </div>
+</body>
+</html>

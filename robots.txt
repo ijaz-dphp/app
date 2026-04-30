@@ -1,0 +1,22 @@
+# Medical Lab System - Robots.txt
+# Restrict all search engine crawlers from indexing this site
+
+User-agent: *
+Disallow: /
+
+# Block specific paths
+Disallow: /config/
+Disallow: /data/
+Disallow: /includes/
+Disallow: /vendor/
+Disallow: /*.php$
+Disallow: /*.db$
+Disallow: /*.pdf$
+
+# Allow only static assets if needed (uncomment if you want)
+# Allow: /assets/
+# Allow: /*.css$
+# Allow: /*.js$
+# Allow: /*.png$
+# Allow: /*.jpg$
+# Allow: /*.gif$

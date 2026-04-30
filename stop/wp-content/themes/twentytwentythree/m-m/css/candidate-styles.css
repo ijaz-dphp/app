@@ -1,0 +1,285 @@
+
+
+/* Candidate Hero Section */
+.candidate-hero-section {
+    padding: 80px 0;
+    background-color: var(--body-bg);
+    position: relative;
+    overflow: hidden;    padding-bottom: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0;
+}
+
+.hero-title {
+font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    color: var(--text-primary);
+}
+
+.hero-title .question-mark {
+    color: var(--accent-color);
+    font-size: 3.5rem;
+}
+.position-static{ position: static;}
+.hero-description {
+    margin-bottom: 40px;
+}
+
+.hero-description p {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+.hand-image-container {
+    position: absolute;
+    right: -106px;
+    top: -154px;
+}
+
+.hand-questionmark {
+
+    /* filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1)); */
+}
+
+/* CV Form Styling */
+.cv-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.cv-form {
+    background: var(--accent-color);
+    border-radius: 280px 280px 0% 0%;
+    padding: 75px 44px 60px;
+    width: 100%;
+    position: relative;
+}
+
+.form-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--button-text-primary);
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #ffffff;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    box-shadow: none;
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.form-control::placeholder {
+    color: #999;
+    font-weight: 500;
+}
+
+/* File Upload Styling */
+.file-upload-group {
+    position: relative;
+}
+
+.file-upload-label {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 0;
+}
+
+.file-upload-label:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.file-upload-label i {
+    color: var(--text-secondary);
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.file-text {
+    color: var(--text-primary);
+    font-weight: 500;
+    margin-right: auto;
+}
+
+.file-placeholder {
+    color: #999;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.file-input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.file-note {
+font-size: 14px;
+    color: var(--button-text-primary);
+    text-align: left;
+    margin: 10px 0 12px;
+    font-weight: 500;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--button-text-primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--button-dark-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(31, 31, 31, 0.3);
+}
+
+/* Dark theme adjustments */
+body.dark-theme .candidate-hero-section {
+    background-color: var(--body-bg);
+}
+
+body.dark-theme .hand-questionmark {
+ 
+}
+
+body.dark-theme .cv-form {
+    box-shadow: 0 20px 40px rgba(255, 223, 32, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .candidate-hero-section {
+        padding: 60px 0;
+    }
+    
+    .hero-title {
+        font-size: 2.8rem;
+        margin-bottom: 25px;
+    }
+    
+    .cv-form {
+        margin-top: 40px;
+        padding: 40px 30px 50px;
+    }
+    
+    .hand-questionmark {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .candidate-hero-section {
+        padding: 40px 0;
+    }
+    
+    .hero-title {
+        font-size: 2.4rem;
+        line-height: 1.2;
+    }
+    
+    .hero-title .question-mark {
+        font-size: 2.8rem;
+    }
+    
+    .hero-description p {
+        font-size: 1rem;
+    }
+    
+    .cv-form {
+        border-radius: 40px;
+        padding: 35px 25px 45px;
+    }
+    
+    .form-title {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+    
+    .hand-image-container {
+        text-align: center;
+        margin-top: 30px;
+    }
+    
+    .hand-questionmark {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    .hero-title .question-mark {
+        font-size: 2.4rem;
+    }
+    
+    .hero-description {
+        text-align: center;
+    }
+    
+    .cv-form {
+        padding: 30px 20px 40px;
+    }
+    
+    .form-title {
+        font-size: 1.6rem;
+    }
+    
+    .form-control {
+        padding: 12px 18px;
+        font-size: 14px;
+    }
+    
+    .file-upload-label {
+        padding: 12px 18px;
+    }
+    
+    .submit-btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+}

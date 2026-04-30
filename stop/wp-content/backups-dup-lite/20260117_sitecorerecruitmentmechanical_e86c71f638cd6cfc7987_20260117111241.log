@@ -1,0 +1,75 @@
+********************************************************************************
+DUPLICATOR-LITE PACKAGE-LOG: January 17, 2026 11:12 am
+NOTICE: Do NOT post to public sites or forums 
+********************************************************************************
+VERSION:	1.5.14
+WORDPRESS:	6.9
+PHP INFO:	8.3.13 | SAPI: fpm-fcgi
+SERVER:		nginx/1.29.0 
+PHP TIME LIMIT: (0) no time limit imposed 
+PHP MAX MEMORY: 4294967296 (640M default) 
+MEMORY STACK: 50MB
+
+********************************************************************************
+DATABASE:
+********************************************************************************
+BUILD MODE:   PHP(query limit - 100)
+MYSQLTIMEOUT: 5000
+MYSQLDUMP:    Not Supported
+TABLES: total:15 | filtered:0 | create:15
+FILTERED: []
+SQL CREATED: 20260117_sitecorerecruitmentmechanical_e86c71f638cd6cfc7987_20260117111241_database.sql
+SQL FILE SIZE: 1.22MB (1276620)
+SQL FILE TIME: 2026-01-17 11:12:53
+SQL RUNTIME: 0.08 sec.
+
+********************************************************************************
+ARCHIVE (ZIP):
+********************************************************************************
+ARCHIVE DIR:  /home/nginx/domains/belldial.softarts.co/public
+ARCHIVE FILE: 20260117_sitecorerecruitmentmechanical_e86c71f638cd6cfc7987_20260117111241_archive.zip
+FILTERS: *OFF*
+DIRS:
+	not set
+FILES:
+	not set
+EXTS:  not set
+----------------------------------------
+COMPRESSING
+SIZE:	128.96MB
+STATS:	Dirs 803 | Files 5,778
+SQL ADDED: 20260117_sitecorerecruitmentmechanical_e86c71f638cd6cfc7987_20260117111241_database.sql
+ZipArchive Object
+(
+    [lastId] => 6580
+    [status] => 0
+    [statusSys] => 0
+    [numFiles] => 6581
+    [filename] => /home/nginx/domains/belldial.softarts.co/public/wp-content/backups-dup-lite/tmp/20260117_sitecorerecruitmentmechanical_e86c71f638cd6cfc7987_20260117111241_archive.zip
+    [comment] => 
+)
+
+FILE ADDED TO ZIP: 6580
+COMPRESSION RESULT: '1'
+COMPRESSED SIZE: 58.22MB
+ARCHIVE RUNTIME: 6.50 sec.
+MEMORY STACK: 52MB
+building installer
+ARCHIVE CONSISTENCY TEST: PASS
+
+********************************************************************************
+INTEGRITY CHECKS:
+********************************************************************************
+SQL FILE: 1.22MB
+INSTALLER FILE: 73.51KB
+ARCHIVE FILE: 60.1MB 
+EXPECTED FILE/DIRECTORY COUNT: 6,581
+ACTUAL FILE/DIRECTORY COUNT: 6,580
+ARCHIVE CONSISTENCY TEST: Pass
+
+********************************************************************************
+RECORD ID:[1]
+TOTAL PROCESS RUNTIME: 7.21 sec.
+PEAK PHP MEMORY USED: 54MB
+DONE PROCESSING => 20260117_sitecorerecruitmentmechanical January 17, 2026 11:13 am
+

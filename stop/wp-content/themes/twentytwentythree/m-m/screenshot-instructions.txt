@@ -1,0 +1,10 @@
+/**
+ * Screenshot placeholder
+ * WordPress requires a screenshot.png file (1200x900px recommended)
+ * 
+ * To add a screenshot:
+ * 1. Take a screenshot of your homepage
+ * 2. Resize it to 1200x900 pixels
+ * 3. Save it as screenshot.png in the theme root directory
+ * 4. This will appear as the theme thumbnail in WordPress admin
+ */
